@@ -107,7 +107,7 @@ function MyApp({ Component, pageProps }) {
                   {navigation.main.map((item) => (
                     <Link href={item.href}>
                       <a
-                        key="{item.name}"
+                        key={item.name}
                         className="font-medium text-gray-500 hover:text-gray-900"
                       >
                         {item.name}
@@ -160,7 +160,7 @@ function MyApp({ Component, pageProps }) {
                   <div className="px-2 pt-2 pb-3">
                     {navigation.main.map((item) => (
                       <a
-                        key="{item.name}"
+                        key={item.name}
                         href={item.href}
                         className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
                       >
