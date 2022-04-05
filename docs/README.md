@@ -130,5 +130,18 @@ It used ~0.0511 Ether to deploy to Ethereum, which is about $176.5 (Ether is abo
 
 ## App Deployment
 
-App is deployed using https://vercel.com/.
+I have to remove `.eslintrc.json` to pass `npm run build`.
 
+App is deployed using https://vercel.com/ with the following settings:
+
+<img width="779" src="https://user-images.githubusercontent.com/595772/161360129-aa51bd43-73f4-49d1-bef8-a649397dcbf2.png">
+<img width="778" src="https://user-images.githubusercontent.com/595772/161360131-244249c5-75f4-4c22-ac3d-ef0001322bdf.png">
+
+## Documentations
+
+[docsify](https://docsify.js.org) is used and documentations are stored in the `/docs` folder. To view the docs locally, run the following:
+
+```
+npm i docsify-cli -g
+docsify serve docs
+```
