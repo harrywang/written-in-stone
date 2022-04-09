@@ -2,7 +2,7 @@
 
 Code for http://writteninstone.xyz/
 
-See the documentations at [http://harrywang.me/written-in-stone/](http://harrywang.me/written-in-stone/)
+Check the [Code Repo](https://github.com/harrywang/written-in-stone)
 
 The followings are used in this project:
 
@@ -146,24 +146,27 @@ App is deployed using https://vercel.com/ with the following settings:
 
 ## Contract Verification
 
-https://hardhat.org/plugins/nomiclabs-hardhat-etherscan.html
+[Related Hardhat Docs](https://hardhat.org/plugins/nomiclabs-hardhat-etherscan.html)
+
+Install the plugin first:
 
 ```
 npm install --save-dev @nomiclabs/hardhat-etherscan
 
 ```
-add the following to `hardhat.config.js`.
+
+add the following to `hardhat.config.js`, get the API key from https://polygonscan.com and set the environment variable.
 
 ```
 require("@nomiclabs/hardhat-etherscan");
 
 ...
 
-etherscan: {
-    // Your API key for Etherscan
-    // Obtain one at https://etherscan.io/
-    apiKey: "YOUR_ETHERSCAN_API_KEY"
-  }
+  etherscan: {
+    // Your API key for verifying contract
+    // Obtain one at https://polygonscan.com
+    apiKey: process.env.POLYGONSCAN_API_KEY
+  },
 ...
 
 ```
