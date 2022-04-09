@@ -38,13 +38,17 @@ npx hardhat node
 
 (Optional for testing locally) Go to https://www.alchemy.com/ to get RPC links for testnets if needed. 
 
+### Environment Variables
+
 Create `.env` file in the root folder with the following environment variables - MAKE SURE to gitignore this file. 
+
+Note: you have to use `NEXT_PUBLIC_` prefix if you want to expose the environment variables to the browser: see [docs](https://nextjs.org/docs/basic-features/environment-variables).
 
 For local deployment, use the first account's private key above.
 
 ```
 # private key for deploying the contract
-NEXT_PUBLIC_PRIVATE_KEY='xxxccb2a3451da0c76475819ff278c1xxx'
+PRIVATE_KEY='xxxccb2a3451da0c76475819ff278c1xxx'
 # local | mumbai | polygon | ethereum
 NEXT_PUBLIC_ENVIRONMENT='local'
 NEXT_PUBLIC_ALCHEMY_URL_RINKEBY='https://eth-rinkeby.alchemyapi.io/v2/Iwj1GhXxxxxxx'
@@ -86,11 +90,12 @@ npx hardhat test
 Note: when you test locally, you need to run `npm run dev` again after you change the Environment Variables.
 
 ### Mumbai
+
 Deploy on Mumbai testnet:
 
 - get some test MATIC from https://faucet.polygon.technology/
 - Change the `.env` to `NEXT_PUBLIC_ENVIRONMENT='mumbai'` and run the following:
-- Change the private key of the Mumbai test account: `NEXT_PUBLIC_PRIVATE_KEY='0xaxxx'`
+- Change the private key of the Mumbai test account: `PRIVATE_KEY='0xaxxx'`
 
 ```
 npx hardhat run scripts/deploy.js --network mumbai
@@ -100,6 +105,7 @@ WrittenInStone deployed to: 0x5f804D0c7e195DF14E894fE871DD1991E30d0854
 View deployed contact at https://mumbai.polygonscan.com/address/0x5f804D0c7e195DF14E894fE871DD1991E30d0854
 
 ### Polygon
+
 Deploy on Polygon main network is essentially the same as on Mumbai - just need to change `NEXT_PUBLIC_ENVIRONMENT='polygon'` and use some real MATIC:
 
 ```
@@ -116,6 +122,7 @@ It used ~0.0377 MATIC to deploy to polygon, which is about 6 cents.
 It used ~0.0055 MATIC to write a message, which is about 1 cent.
 
 ### Ethereum
+
 Deploy on Ethereum mainnet: change `NEXT_PUBLIC_ENVIRONMENT='ethereum'` and use some real ether:
 
 ```
@@ -136,6 +143,51 @@ App is deployed using https://vercel.com/ with the following settings:
 
 <img width="779" src="https://user-images.githubusercontent.com/595772/161360129-aa51bd43-73f4-49d1-bef8-a649397dcbf2.png">
 <img width="778" src="https://user-images.githubusercontent.com/595772/161360131-244249c5-75f4-4c22-ac3d-ef0001322bdf.png">
+
+## Contract Verification
+
+https://hardhat.org/plugins/nomiclabs-hardhat-etherscan.html
+
+```
+npm install --save-dev @nomiclabs/hardhat-etherscan
+
+```
+add the following to `hardhat.config.js`.
+
+```
+require("@nomiclabs/hardhat-etherscan");
+
+...
+
+etherscan: {
+    // Your API key for Etherscan
+    // Obtain one at https://etherscan.io/
+    apiKey: "YOUR_ETHERSCAN_API_KEY"
+  }
+...
+
+```
+
+Then run the following with the DEPLOYED_CONTRACT_ADDRESS and "Constructor argument 1":
+
+```
+npx hardhat verify --network polygon 0xa8578e0e64bbf0c27bf8a0dd3211889d34c31faf "weiwei"
+
+...
+Nothing to compile
+Successfully submitted source code for contract
+contracts/WrittenInStone.sol:WrittenInStone at 0xa8578e0e64bbf0c27bf8a0dd3211889d34c31faf
+for verification on the block explorer. Waiting for verification result...
+
+Successfully verified contract WrittenInStone on Etherscan.
+https://polygonscan.com/address/0xa8578e0e64bbf0c27bf8a0dd3211889d34c31faf#code
+
+```
+
+Visit https://polygonscan.com/address/0xa8578e0e64bbf0c27bf8a0dd3211889d34c31faf#code to see the check mark:
+
+<img width="605" src="https://user-images.githubusercontent.com/595772/162581606-780a94e9-b70f-4411-a3ba-a67390429fe2.png">
+
 
 ## Documentations
 

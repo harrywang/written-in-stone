@@ -1,5 +1,6 @@
 /* hardhat.config.js */
 require("@nomiclabs/hardhat-waffle")
+require("@nomiclabs/hardhat-etherscan");
 
 // read environment variables from .env file during development
 if (process.env.NODE_ENV !== 'production') {
@@ -14,20 +15,25 @@ module.exports = {
     },
     rinkeby: {
       url: process.env.NEXT_PUBLIC_ALCHEMY_URL_RINKEBY,
-      accounts: [process.env.NEXT_PUBLIC_PRIVATE_KEY]
+      accounts: [process.env.PRIVATE_KEY]
     },
     ethereum: {
       url: process.env.NEXT_PUBLIC_ALCHEMY_URL_ETHEREUM,
-      accounts: [process.env.NEXT_PUBLIC_PRIVATE_KEY]
+      accounts: [process.env.PRIVATE_KEY]
     },
     mumbai: {
       url: process.env.NEXT_PUBLIC_ALCHEMY_URL_MUMBAI,
-      accounts: [process.env.NEXT_PUBLIC_PRIVATE_KEY]
+      accounts: [process.env.PRIVATE_KEY]
     },
     polygon: {
       url: process.env.NEXT_PUBLIC_ALCHEMY_URL_POLYGON,
-      accounts: [process.env.NEXT_PUBLIC_PRIVATE_KEY]
+      accounts: [process.env.PRIVATE_KEY]
     },
+  },
+  etherscan: {
+    // Your API key for verifying contract
+    // Obtain one at https://polygonscan.com
+    apiKey: process.env.POLYGONSCAN_API_KEY
   },
   solidity: {
     version: "0.8.4",

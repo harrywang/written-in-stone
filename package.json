@@ -28,6 +28,7 @@
   "devDependencies": {
     "@headlessui/react": "^1.5.0",
     "@heroicons/react": "^1.0.6",
+    "@nomiclabs/hardhat-etherscan": "^3.0.3",
     "@tailwindcss/typography": "^0.5.2",
     "autoprefixer": "^10.4.4",
     "eslint": "8.12.0",
