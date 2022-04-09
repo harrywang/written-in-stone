@@ -14,7 +14,7 @@ export default function About() {
             </p>
 
             <p className="prose prose-indigo text-gray-500 leading-8">
-              The contract is deployed on <a href="https://polygonscan.com/address/0xa8578e0e64bbf0c27bf8a0dd3211889d34c31faf">Polygon</a>. You need to connect to the Polygon Mainnet and buy some MATIC to pay the gas fee (<a href="https://medium.com/prepo/setting-up-metamask-and-getting-eth-matic-on-polygon-step-by-step-guide-fd55147a0f05">how-to</a>). 
+              The contract is deployed on <a href="https://polygonscan.com/address/0xa8578e0e64bbf0c27bf8a0dd3211889d34c31faf">Polygon</a>. You need to connect to the Polygon Mainnet and buy some MATIC to pay the gas fee to record your messages, which is about $0.01 per message when MATIC is ~$1.7 (<a href="https://medium.com/prepo/setting-up-metamask-and-getting-eth-matic-on-polygon-step-by-step-guide-fd55147a0f05">how-to</a>). 
             </p>
           </div>
         </div>
