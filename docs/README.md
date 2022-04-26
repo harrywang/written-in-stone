@@ -240,11 +240,18 @@ Note that the gas price (such as `69 gwei/gas` and `64 gwei/gas` below) is the p
 
 <img width="760" alt="Screen Shot 2022-04-26 at 2 34 43 PM" src="https://user-images.githubusercontent.com/595772/165368882-e7cab064-b9ae-4591-9124-c29075bd5324.png">
 
-The default network is Ethereum. Other `token` and `gasPriceApi` options are as follows:
+The default network is Ethereum. To test for other networks, use different `token` and `gasPriceApi` options in `hardhat.config.js`:
 
-<img width="832" alt="Screen Shot 2022-04-26 at 2 44 03 PM" src="https://user-images.githubusercontent.com/595772/165370166-046df971-e3f3-46f9-b824-cdb793c31ca6.png">
+| Network            | token | gasPriceApi                                                            |
+| ------------------ | ----- | ---------------------------------------------------------------------- |
+| Ethereum (default) | ETH   | https://api.etherscan.io/api?module=proxy&action=eth_gasPrice          |
+| Binance            | BNB   | https://api.bscscan.com/api?module=proxy&action=eth_gasPrice           |
+| Polygon            | MATIC | https://api.polygonscan.com/api?module=proxy&action=eth_gasPrice       |
+| Avalanche          | AVAX  | https://api.snowtrace.io/api?module=proxy&action=eth_gasPrice          |
+| Heco               | HT    | https://api.hecoinfo.com/api?module=proxy&action=eth_gasPrice          |
+| Moonriver          | MOVR  | https://api-moonriver.moonscan.io/api?module=proxy&action=eth_gasPrice |
 
-The following is an example for Polygon:
+The following is an example result for Polygon:
 
 <img width="765" src="https://user-images.githubusercontent.com/595772/165370912-92bbdb36-8a6a-44ca-b71a-ac69cbef4fa7.png">
 
