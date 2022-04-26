@@ -237,9 +237,11 @@ Note that the gas price (such as `69 gwei/gas` and `64 gwei/gas` below) is the p
 
 
 <img width="770" alt="Screen Shot 2022-04-26 at 2 34 36 PM" src="https://user-images.githubusercontent.com/595772/165368872-af422981-d999-4de0-831e-9093cca37257.png">
+
 <img width="760" alt="Screen Shot 2022-04-26 at 2 34 43 PM" src="https://user-images.githubusercontent.com/595772/165368882-e7cab064-b9ae-4591-9124-c29075bd5324.png">
 
 The default network is Ethereum. Other `token` and `gasPriceApi` options are as follows:
+
 <img width="832" alt="Screen Shot 2022-04-26 at 2 44 03 PM" src="https://user-images.githubusercontent.com/595772/165370166-046df971-e3f3-46f9-b824-cdb793c31ca6.png">
 
 The following is an example for Polygon:
