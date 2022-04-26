@@ -38,10 +38,10 @@ module.exports = {
   },
   gasReporter: {
     currency: 'USD',
-    //token: 'ETH',
-    token: 'MATIC',
-    //gasPriceApi: 'https://api.etherscan.io/api?module=proxy&action=eth_gasPrice',
-    gasPriceApi: 'https://api.polygonscan.com/api?module=proxy&action=eth_gasPrice',
+    token: 'ETH',
+    //token: 'MATIC',
+    gasPriceApi: 'https://api.etherscan.io/api?module=proxy&action=eth_gasPrice',
+    //gasPriceApi: 'https://api.polygonscan.com/api?module=proxy&action=eth_gasPrice',
     coinmarketcap: process.env.CMC_API_KEY,
   },
   solidity: {
