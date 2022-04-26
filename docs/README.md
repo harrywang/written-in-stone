@@ -231,15 +231,15 @@ module.exports = {
 
 ```
 
-run: `npx hardhat test` to see the result - this also run other hardhat tests. 
+run: `npx hardhat test` to see the result - this also runs other hardhat tests. 
 
-Note that the gas price (such as `69 gwei/gas` and `64 gwei/gas` below) is the price when you run the test and the following shows the different gas estimations (I paid $175 while the estimated gas fees are $140 and $130)
+Note that the gas price (such as `69 gwei/gas` and `64 gwei/gas` below) is the price when you run the test and the following shows the different gas estimations (I paid $175 while the estimated gas fees are $140 and $130):
 
-<img width="770" alt="Screen Shot 2022-04-26 at 2 34 36 PM" src="https://user-images.githubusercontent.com/595772/165368872-af422981-d999-4de0-831e-9093cca37257.png">
+<img width="770" src="https://user-images.githubusercontent.com/595772/165368872-af422981-d999-4de0-831e-9093cca37257.png">
 
+--
 
-<img width="760" alt="Screen Shot 2022-04-26 at 2 34 43 PM" src="https://user-images.githubusercontent.com/595772/165368882-e7cab064-b9ae-4591-9124-c29075bd5324.png">
-
+<img width="760" src="https://user-images.githubusercontent.com/595772/165368882-e7cab064-b9ae-4591-9124-c29075bd5324.png">
 
 The default network is Ethereum. To test for other networks, use different `token` and `gasPriceApi` options in `hardhat.config.js`:
 
