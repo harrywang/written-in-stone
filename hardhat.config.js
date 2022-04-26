@@ -1,6 +1,7 @@
 /* hardhat.config.js */
 require("@nomiclabs/hardhat-waffle")
 require("@nomiclabs/hardhat-etherscan");
+require("hardhat-gas-reporter");
 
 // read environment variables from .env file during development
 if (process.env.NODE_ENV !== 'production') {
@@ -34,6 +35,14 @@ module.exports = {
     // Your API key for verifying contract
     // Obtain one at https://polygonscan.com
     apiKey: process.env.POLYGONSCAN_API_KEY
+  },
+  gasReporter: {
+    currency: 'USD',
+    //token: 'ETH',
+    token: 'MATIC',
+    //gasPriceApi: 'https://api.etherscan.io/api?module=proxy&action=eth_gasPrice',
+    gasPriceApi: 'https://api.polygonscan.com/api?module=proxy&action=eth_gasPrice',
+    coinmarketcap: process.env.CMC_API_KEY,
   },
   solidity: {
     version: "0.8.4",

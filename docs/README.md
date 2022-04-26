@@ -192,6 +192,60 @@ Visit https://polygonscan.com/address/0xa8578e0e64bbf0c27bf8a0dd3211889d34c31faf
 <img width="605" src="https://user-images.githubusercontent.com/595772/162581606-780a94e9-b70f-4411-a3ba-a67390429fe2.png">
 
 
+## Gas Estimation
+
+Install the plugin:
+
+```
+npm install hardhat-gas-reporter --save-dev
+```
+Get a free API key from https://coinmarketcap.com/api/pricing/:
+
+<img width="2552" src="https://user-images.githubusercontent.com/595772/165367163-5dd98362-c35a-4ea2-8bbd-873038ec87ae.png">
+
+Add the API key in `.env` file:
+
+```
+# API Key for estimate gas using CoinMarketCap
+CMC_API_KEY='55578fxxxx'
+```
+
+Add the following to `hardhat.config.js`:
+
+```
+require("hardhat-gas-reporter");
+...
+
+module.exports = {
+  ...
+  gasReporter: {
+    currency: 'USD',
+    token: 'ETH',
+    //token: 'MATIC',
+    gasPriceApi: 'https://api.etherscan.io/api?module=proxy&action=eth_gasPrice',
+    //gasPriceApi: 'https://api.polygonscan.com/api?module=proxy&action=eth_gasPrice',
+    coinmarketcap: process.env.CMC_API_KEY,
+  },
+  ...
+}
+
+```
+
+run: `npx hardhat test` to see the result - this also run other hardhat tests. 
+
+Note that the gas price (such as `69 gwei/gas` and `64 gwei/gas` below) is the price when you run the test and the following shows the different gas estimations (I paid $175 while the estimated gas fees are $140 and $130)
+
+
+<img width="770" alt="Screen Shot 2022-04-26 at 2 34 36 PM" src="https://user-images.githubusercontent.com/595772/165368872-af422981-d999-4de0-831e-9093cca37257.png">
+<img width="760" alt="Screen Shot 2022-04-26 at 2 34 43 PM" src="https://user-images.githubusercontent.com/595772/165368882-e7cab064-b9ae-4591-9124-c29075bd5324.png">
+
+The default network is Ethereum. Other `token` and `gasPriceApi` options are as follows:
+<img width="832" alt="Screen Shot 2022-04-26 at 2 44 03 PM" src="https://user-images.githubusercontent.com/595772/165370166-046df971-e3f3-46f9-b824-cdb793c31ca6.png">
+
+The following is an example for Polygon:
+
+<img width="765" src="https://user-images.githubusercontent.com/595772/165370912-92bbdb36-8a6a-44ca-b71a-ac69cbef4fa7.png">
+
 ## Documentations
 
 [docsify](https://docsify.js.org) is used and documentations are stored in the `/docs` folder. To view the docs locally, run the following:
